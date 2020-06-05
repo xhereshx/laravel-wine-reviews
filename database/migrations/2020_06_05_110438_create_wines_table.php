@@ -18,12 +18,12 @@ class CreateWinesTable extends Migration
             $table->text('title');	
             $table->unsignedBigInteger('variety_id');
             $table->decimal('price');
-            $table->unsignedBigInteger('country_id');
-            $table->text('province');	
+            $table->foreignId('country_id');
+            $table->text('province');
             $table->text('region')->nullable();
-            $table->text('region2')->nullable();	
-            $table->unsignedBigInteger('winery_id');
-            $table->text('designation');	
+            $table->text('region2')->nullable();
+            $table->foreignId('winery_id');
+            $table->text('designation');
         });
     }
 

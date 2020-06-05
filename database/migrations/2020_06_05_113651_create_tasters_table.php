@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWineWineriesTable extends Migration
+class CreateTastersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateWineWineriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('wine_wineries', function (Blueprint $table) {
+        Schema::create('tasters', function (Blueprint $table) {
             $table->id();
-            $table->text('winery');	
+            $table->text('name');	
+            $table->char('twitter_handle',127)->unique();	
+
         });
     }
 
@@ -26,6 +28,6 @@ class CreateWineWineriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wine_wineries');
+        Schema::dropIfExists('tasters');
     }
 }
